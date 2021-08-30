@@ -4,6 +4,7 @@
 $fname = 'Dylan';
 $lname = 'Gaines';
 $position = 'Web Developer';
+$imagelink = './assets/media/thisnone.png';
 
 echo '<!doctype html>
 <html lang="en">
@@ -40,7 +41,7 @@ echo '<!doctype html>
                     <!-- Team Thumb-->
                     <div class="advisor_thumb">
                         <!--anchor with link to detail, image b/t anchor tags-->
-                        <a href="', $fname, '_', $lname, '.php"><img src="./assets/media/thisnone.png" alt=""></a>
+                        <a href="', $fname, '_', $lname, '.php"><img src="',$imagelink, '" alt=""></a>
                         <!-- Social Info, I refuse to do facebook, no shot-->
                         <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
                     </div>
