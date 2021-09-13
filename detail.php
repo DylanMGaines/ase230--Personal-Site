@@ -41,19 +41,16 @@ $longDbVar = [
     ]
 ];
 
-class Skill
-{
+class Skill {
     public string $skill;
     public int $percentage;
 
-    public function __construct(string $skill, int $percentage)
-    {
+    public function __construct(string $skill, int $percentage) {
         $this->skill = $skill;
         $this->percentage = $percentage;
     }
 
-    public function skillBar(): void
-    {
+    public function skillBar(): void {
         echo '<div class="py-1">
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" style="width:', $this->percentage, '%;" aria-valuenow="', $this->percentage, '" aria-valuemin="0" aria-valuemax="100">
@@ -67,8 +64,7 @@ class Skill
 
 //This doesn't feel like the most efficient way to do this, but other than multiple giant arrays, I can't think of anything else
 //If I knew how to import classes, I'd put this and skill in seperate files, but alas
-class Person
-{
+class Person {
     protected string $fname, $lname, $intro, $imageLink, $profession, $quote, $funFact, $email, $dreamCo;
     protected array $links = [
         "fb" => "#",
@@ -77,10 +73,9 @@ class Person
         "li" => "#"
     ];
     protected int $year;
-    protected array $skills = [];
+    protected array $skills = [];      //This is a test
 
-    public function __construct(array $entry, array $longStuff)
-    {
+    public function __construct(array $entry, array $longStuff) {
         //if there was an efficient way to loop this, I'd do that, but I'd have to create an array of the this-> varnames and that's pointless given that it'd be single use
         $this->fname = $entry[0];
         $this->lname = $entry[1];
@@ -95,73 +90,60 @@ class Person
         $this->setSkills($longStuff[5]);
     }
 
-    public function setSkills(array $skillSet)
-    {
+    public function setSkills(array $skillSet) {
         $l = count($skillSet);
         for ($i = 0; $i < $l; $i++) {
             array_push($this->skills, new Skill($skillSet[$i][0], $skillSet[$i][1]));
         }
     }
 
-    public function getFname()
-    {
+    public function getFname() {
         return $this->fname;
     }
 
-    public function getLname()
-    {
+    public function getLname() {
         return $this->lname;
     }
 
-    public function getImageLink()
-    {
+    public function getImageLink() {
         return $this->imageLink;
     }
 
-    public function getIntro()
-    {
+    public function getIntro() {
         return $this->intro;
     }
 
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
-    public function getDreamCo()
-    {
+    public function getDreamCo() {
         return $this->dreamCo;
     }
 
-    public function getFunFact()
-    {
+    public function getFunFact() {
         return $this->funFact;
     }
 
-    public function getLinks(): array
-    {
+    public function getLinks(): array {
         return $this->links;
     }
 
-    public function getProfession()
-    {
+    public function getProfession() {
         return $this->profession;
     }
 
-    public function getQuote()
-    {
+    public function getQuote() {
         return $this->quote;
     }
 
-    public function displaySkills()
-    {
+    public function displaySkills() {
         for ($i = 0; $i < count($this->skills); $i++) {
             $this->skills[$i]->skillbar();
         }
     }
 
-    public function getYear()
-    {
+    public function getYear() {
         return $this->year;
     }
 }

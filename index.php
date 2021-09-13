@@ -6,8 +6,7 @@
     //At some point, I'd like to load these cards dynamically, but for now, I will leave it. I'm very tired.
     //Update: I now HAVE to load them dynamically, so uh
 
-    class Person
-    {
+    class Person {
         public string $id;
         public string $fname;
         public string $lname;
@@ -15,8 +14,7 @@
         public string $imageLink;
         public int $year;
 
-        public function __construct(string $id, string $fname, string $lname, string $position, string $imageLink, int $year)
-        {
+        public function __construct(string $id, string $fname, string $lname, string $position, string $imageLink, int $year) {
             $this->id = $id;
             $this->fname = $fname;
             $this->lname = $lname;
@@ -25,8 +23,7 @@
             $this->year = $year;
         }
 
-        public function cardLoader(): void
-        {
+        public function cardLoader(): void {
             echo '<div class="col-12 col-sm-6 col-lg-3">
                         <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
                             <!-- Team Thumb-->
@@ -44,10 +41,10 @@
                                     <h6>', $this->fname, ' ', $this->lname, '</h6>
                                     <p class="designation">', $this->position, '</p>
                                     <div>';
-                                        for ($i = 0; $i < $this->year; $i++ ) {
-                                            echo '<span class="h5 bi-slash-lg"></span>';
-                                        }
-                                echo '</div>
+            for ($i = 0; $i < $this->year; $i++) {
+                echo '<span class="h5 bi-slash-lg"></span>';
+            }
+            echo '</div>
                                 </div>
                         </div>
                   </div>';
@@ -82,8 +79,9 @@
         .single_advisor_profile:hover .bi-slash-lg {
             -webkit-transition-duration: 500ms;
             transition-duration: 500ms;
-            color:#FFFFFF;
+            color: #FFFFFF;
         }
+
         .single_advisor_profile .bi-slash-lg {
             -webkit-transition-duration: 500ms;
             transition-duration: 500ms;
