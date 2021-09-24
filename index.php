@@ -5,8 +5,8 @@
     <?php
     //At some point, I'd like to load these cards dynamically, but for now, I will leave it. I'm very tired.
     //Update: I now HAVE to load them dynamically, so uh
-    require_once("data.php");
     require_once("functions.php");
+    require_once("json_util.php");
     ?>
 
     <!-- https://www.bootdey.com/snippets/view/single-advisor-profile#html -->
@@ -72,6 +72,7 @@
         <!-- Single Advisor-->
         <!--FIRST card-->
         <?php
+        $studentArray = fileFetcher();
         cardLoader($studentArray);
         ?>
     </div>
