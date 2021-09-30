@@ -35,7 +35,9 @@ function huntMan($selector) {
  */
 function saveMan(&$phpMan) {
     //encode phpRay into JSON array
+    $james = json_encode($phpMan);
     //put to file
+    file_put_contents("./assets/JSON/class.json", $james);
     //close file?
     //void
 }

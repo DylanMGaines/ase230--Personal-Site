@@ -47,6 +47,28 @@
             -webkit-transition-duration: 500ms;
             transition-duration: 500ms;
         }
+
+        #createButton {
+            right: 5%;
+            bottom: 5%;
+            width: 3rem;
+            height: 3rem;
+            z-index: 5;
+            transition: all 0.25s ease-in-out;
+            -webkit-transition: all 0.25s ease-in-out;
+            -moz-transition: all 0.25s ease-in-out;
+        }
+
+        #createButton:hover {
+            width: 7rem;
+            transition: all 0.25s ease-in-out;
+            -webkit-transition: all 0.25s ease-in-out;
+            -moz-transition: all 0.25s ease-in-out;
+        }
+
+        #createButton:hover::after {
+            content: "create";
+        }
     </style>
 
     <title>ASE 230 - class of Spring/Fall/Summer 20XX</title>
@@ -76,6 +98,11 @@
         cardLoader($studentArray);
         ?>
     </div>
+    <a href="create.php">
+    <button class="btn-outline-primary rounded-pill text-center text-nowrap
+        position-fixed rounded-circle ratio-1x1 bi-keyboard fs-5 overflow-hidden" id="createButton">
+    </button>
+    </a>
 </div>
 </body>
 
