@@ -1,7 +1,7 @@
 <?php
-
-//This doesn't feel like the most efficient way to do this, but other than multiple giant arrays, I can't think of anything else
-//If I knew how to import classes, I'd put this and skill in separate files, but alas
+if (count($_POST)) {
+    print_r($_POST);
+}
 
 ?>
 
@@ -31,6 +31,30 @@
           integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/detail.css"/>
+    <script src = "./assets/js/create.js"></script>
+    <style>
+        #subButton {
+            right: 5%;
+            bottom: 5%;
+            width: 3rem;
+            height: 3rem;
+            z-index: 5;
+            transition: all 0.25s ease-in-out;
+            -webkit-transition: all 0.25s ease-in-out;
+            -moz-transition: all 0.25s ease-in-out;
+        }
+
+        #subButton:hover {
+            width: 7rem;
+            transition: all 0.25s ease-in-out;
+            -webkit-transition: all 0.25s ease-in-out;
+            -moz-transition: all 0.25s ease-in-out;
+        }
+
+        #subButton:hover::after {
+            content: "create";
+        }
+    </style>
 </head>
 
 <body>
@@ -43,48 +67,57 @@
     <form>
         <div class="row">
             <div class="col-lg-5 col-md-6">
-                <div class="mb-2">
-                    <img class="w-100" src="..."
+                <div class="mb-4">
+                    <!--This is just a placeholder image, it can be anything-->
+                    <img class="w-100" src="http://cdn.onlinewebfonts.com/svg/img_282899.png"
                          alt="bink">
-                </div>
-                <div class="mb-2 d-flex">
-                    <h4 class="font-weight-normal"><!--<?= $theOne->{"name"} ?>--></h4>
-                    <!--<div class="social d-flex ml-auto">
-                        <p class="pr-2 font-weight-normal">Follow on:</p>
-                        <a href="<?= $theOne->{"facebook"} ?>" class="text-muted mr-1">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="<?= $theOne->{"twitter"} ?>" class="text-muted mr-1">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="<?= $theOne->{"instagram"} ?>" class="text-muted mr-1">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="<?= $theOne->{"linkedIn"} ?>" class="text-muted">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>-->
+                    <input type="text" name="img" id="img" class="form-control mt-1"
+                           placeholder="Image Link (URL only)">
                 </div>
                 <div class="mb-2">
                     <ul class="list-unstyled">
-                        <li class="form-floating mb-3 media">
+                        <li class="form-floating mb-2 media">
                             <input type="text" class="form-control media-body w-25" name="dProfession"
                                    id="dProfession" placeholder="Dream profession">
                             <label for="dProfession">Dream profession</label>
                         </li>
-                        <li class="form-floating mb-3 media">
+                        <li class="form-floating mb-2 media">
                             <input type="text" class="form-control media-body w-25" id="dCompany" name="dCompany"
                                    placeholder="Dream company">
                             <label for="dCompany">Dream company</label>
                         </li>
-                        <li class="form-floating mb-3 media">
+                        <li class="form-floating mb-2 media">
                             <input type="email" class="form-control media-body w-25" id="email" name="email"
                                    placeholder="Email">
                             <label for="email">Email</label>
                         </li>
-                        <li class="form-floating mb-3 media">
+                        <li class="form-floating mb-2 media">
                             <input type="date" class="form-control media-body w-25" name="DOB" id="DOB">
                             <label for="DOB">DOB: </label>
+                        </li>
+                        <li class="mb-2 media">
+                            <div class="form-floating w-50">
+                                <input type="text" class="form-control form-control-sm media-body" name="facebook"
+                                       id="facebook" placeholder="Facebook Link">
+                                <label for="facebook" class="fab fa-facebook"></label>
+                            </div>
+                            <div class="form-floating w-50">
+                                <input type="text" class="form-control form-control-sm media-body" name="twitter"
+                                       id="twitter" placeholder="Twitter Link">
+                                <label for="twitter" class="fab fa-twitter"></label>
+                            </div>
+                        </li>
+                        <li class="mb-2 media row-cols-2">
+                            <div class="form-floating w-50 ">
+                                <input type="text" class="form-control form-control-sm media-body" name="instagram"
+                                       id="instagram" placeholder="Instagram Link">
+                                <label for="instagram" class="fab fa-instagram"></label>
+                            </div>
+                            <div class="form-floating w-50">
+                                <input type="text" class="form-control form-control-sm media-body" name="linkedIn"
+                                       id="linkedIn" placeholder="LinkedIn Link">
+                                <label for="linkedIn" class="fab fa-linkedin"></label>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -95,20 +128,28 @@
                 <div class="my-2 bg-light p-2">
                     <div class="form-floating">
                         <textarea class="w-100 form-control bg-light" name="quote" id="quote"
-                              placeholder="Quote" rows="4"></textarea>
+                                  placeholder="Quote" rows="4"></textarea>
                         <label for="quote">Quote</label>
                     </div>
                 </div>
                 <div class="mb-2 mt-2 pt-1">
                     <h5 class="font-weight-normal">Top skills</h5>
                 </div>
-                <?php
-                skillbar($theOne->{"skills"});
-                ?>
-                <h5 class="font-weight-normal">Fun fact</h5>
-                <p><?= $theOne->{"funfact"} ?></p>
+                <div id="ph"></div>
+                <button type="button" class="btn btn-outline-dark mb-3" id="skillButton">
+                    + New Skill
+                </button>
+
+                <div class="form-floating">
+                    <textarea class="form-control" id="funfact" name="funfact" placeholder="Fun fact"></textarea>
+                    <label for="funfact">Fun fact</label>
+                </div>
+                <input class="form-control visually-hidden" id="key" name="key">
             </div>
         </div>
+            <button type="submit" class="btn-outline-primary rounded-pill text-center text-nowrap
+        position-fixed rounded-circle ratio-1x1 bi-keyboard fs-5 overflow-hidden" id="subButton">
+            </button>
     </form>
 </div>
 </body>
