@@ -47,10 +47,15 @@ function cardLoaderHelper(&$student) {
     echo "<ul>";
     chronos($student->{"DOB"});
     echo "</ul>";
-    echo '                          </div>
+    echo '<a href="delete.php?id=', $student->{"key"}, '">
+    <button class="btn-outline-primary rounded-pill text-center text-nowrap
+        position-relative rounded-circle ratio-1x1 bi-trash fs-5 overflow-hidden" id="deleteButton">
+    </button>
+</a>                      </div>
                                 </div>
                         </div>
           </div>';
+
 }
 
 function skillBar(&$skills) {
@@ -108,10 +113,12 @@ function ananke($thing, $time) {
             $theMad = "age";
         }
     }
+
     echo "<li class='media p-0 mb-0'>
                         <span class='w-25 text-black font-weight-normal'>" . $theMad . "</span>
                         <label class='media-body p-0 mb-0'>";
     echo $time->format($theLad);
     echo "               </label>
           </li>";
+
 }

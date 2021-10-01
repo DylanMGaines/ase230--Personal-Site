@@ -69,8 +69,20 @@
         #createButton:hover::after {
             content: "create";
         }
-    </style>
+        #deleteButton {
+            right: 5%;
+            bottom: 15%;
+            width: 3rem;
+            height: 3rem;
+            z-index: 5;
+            transition: all 0.25s ease-in-out;
+            -webkit-transition: all 0.25s ease-in-out;
+            -moz-transition: all 0.25s ease-in-out;
+        }
 
+
+    </style>
+    <a href="./index.php" class="bi bi-house-fill text-secondary"></a>
     <title>ASE 230 - class of Spring/Fall/Summer 20XX</title>
 </head>
 
@@ -102,6 +114,11 @@
     <button class="btn-outline-primary rounded-pill text-center text-nowrap
         position-fixed rounded-circle ratio-1x1 bi-keyboard fs-5 overflow-hidden" id="createButton">
     </button>
+    </a>
+    <a href="delete.php">
+        <button class="btn-outline-primary rounded-pill text-center text-nowrap
+        position-relative rounded-circle ratio-1x1 bi-keyboard fs-5 overflow-hidden" id="deleteButton">
+        </button>
     </a>
 </div>
 </body>

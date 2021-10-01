@@ -1,7 +1,7 @@
 <?php
 
 //This doesn't feel like the most efficient way to do this, but other than multiple giant arrays, I can't think of anything else
-//If I knew how to import classes, I'd put this and skill in seperate files, but alas
+//If I knew how to import classes, I'd put this and skill in separate files, but alas
 
 ?>
 
