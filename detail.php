@@ -1,10 +1,3 @@
-<?php
-
-//This doesn't feel like the most efficient way to do this, but other than multiple giant arrays, I can't think of anything else
-//If I knew how to import classes, I'd put this and skill in seperate files, but alas
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +26,51 @@
           integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/detail.css"/>
+
+    <style>
+        .deleteButton {
+            bottom: 5%;
+            right: 5%;
+            width: 3rem;
+            height: 2.5rem;
+            z-index: 5;
+            transition: all 0.25s ease-in-out;
+            -webkit-transition: all 0.25s ease-in-out;
+            -moz-transition: all 0.25s ease-in-out;
+        }
+
+        .deleteButton:hover {
+            width: 6rem;
+            transition: all 0.25s ease-in-out;
+            -webkit-transition: all 0.25s ease-in-out;
+            -moz-transition: all 0.25s ease-in-out;
+        }
+
+        .deleteButton:hover::after {
+            content: "delete";
+        }
+        .modButton {
+            bottom: 20%;
+            right: 5%;
+            width: 3rem;
+            height: 2.5rem;
+            z-index: 5;
+            transition: all 0.25s ease-in-out;
+            -webkit-transition: all 0.25s ease-in-out;
+            -moz-transition: all 0.25s ease-in-out;
+        }
+
+        .modButton:hover {
+            width: 6rem;
+            transition: all 0.25s ease-in-out;
+            -webkit-transition: all 0.25s ease-in-out;
+            -moz-transition: all 0.25s ease-in-out;
+        }
+
+        .modButton:hover::after {
+            content: "modify";
+        }
+    </style>
 </head>
 
 <body>
@@ -102,6 +140,17 @@
         </div>
     </div>
 </div>
+<a href='modify.php?id=<?= $theOne->{"key"} ?>'>
+    <button class="btn btn-secondary rounded-pill text-center text-nowrap bg-secondary
+              position-fixed rounded-circle ratio-1x1 bi-pencil fs-5 overflow-hidden modButton">
+    </button>
+</a>
+<!-- So this setup doesn't look great, but it looks a lot better than the alternative imo -->
+<a href='delete.php?id=<?= $theOne->{"key"} ?>'>
+    <button class="btn btn-secondary rounded-pill text-center text-nowrap bg-secondary
+              position-fixed rounded-circle ratio-1x1 bi-trash fs-5 overflow-hidden deleteButton">
+    </button>
+</a>
 </body>
 
 </html>

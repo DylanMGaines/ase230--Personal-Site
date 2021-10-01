@@ -78,14 +78,6 @@
         #createButton:hover::after {
             content: "create";
         }
-
-        .deleteButton {
-            width: 3rem;
-            height: 3rem;
-            z-index: 5;
-        }
-
-
     </style>
     <title>ASE 230 - class of Spring/Fall/Summer 2021</title>
 
@@ -94,25 +86,13 @@
 <body>
 <!--header with house icon and words-->
 <header class="container text-center">
-    <h1><a href="./index.php" class="bi bi-house-fill text-secondary"></a>This is ASE 230 - class of Fall 2021</h1>
+    <h1><a href="./index.php" class="bi bi-house-fill text-secondary"></a>ASE 230 - class of Fall 2021</h1>
 </header>
 <!-- holds second bit of header, 2 rows -->
 <div class="container">
     <!-- turns container into a row, centers it -->
-    <div class="row justify-content-center">
-        <!-- sets column sizes -->
-        <div class="col-12 col-sm-8 col-lg-6">
-            <!-- Subtitle about appland I guess -->
-            <div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s"
-                 style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                <h3>Our Creative <span>Team</span></h3>
-                <p>Appland is completely creative, lightweight, clean &amp; super responsive app landing page.</p>
-                <div class="line"></div>
-            </div>
-        </div>
-    </div>
     <!-- second row, holds cards -->
-    <div class="row">
+    <div class="row mt-5">
         <?php
         //card loader
         $studentArray = fileFetcher("./assets/JSON/class.json");

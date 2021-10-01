@@ -45,12 +45,7 @@ function cardLoaderHelper(Object &$student) : void {
                             echo "<ul>";
                                     chronos($student->{"DOB"});
                             echo "</ul>";
-                            echo '<a href="delete.php?id=', $student->{"key"}, '">
-                                      <button class="btn-outline-primary rounded-pill text-center text-nowrap
-                                              position-relative rounded-circle ratio-1x1 bi-trash fs-5 overflow-hidden delete-button">
-                                      </button>
-                                  </a>
-                            </div>
+                            echo '</div>
                 </div>
             </div>
           </div>';

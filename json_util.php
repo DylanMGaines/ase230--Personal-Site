@@ -25,6 +25,22 @@ function huntMan(string $selector) {
 
     return $retMan;
 }
+/**
+ * Hunts for a user with a key equal to an input selector or returns -1
+ * @PARAM $selector string the key of the user you're looking to find
+ * @return mixed returns reference to an array if found, if not, returns -1
+ **/
+function huntDex(string $selector) {
+    $phpMan = fileFetcher("./assets/JSON/class.json");       //get the array
+    $retMan = -1;                                                   //establish return var
+    for ($i = 0; $i < count($phpMan); $i++) {                       //otherwise loop through array
+        if (strcmp($phpMan[$i]->{'key'}, $selector) == 0) {         //if the current key matches the selector
+            $retMan = $i;                                           //set retman the index for return
+        }
+    }
+
+    return $retMan;
+}
 
 /**
  * Saves an array into a file, no return
