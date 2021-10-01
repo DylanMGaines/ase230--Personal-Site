@@ -1,67 +1,70 @@
 <?php
-/** INFO cardLoader
- * Takes a reference to an associative array as parameter.
+/**
  * Main cardloader function, called from within index.php.
- * Moved to its own function to make index.php cleaner. Used to be loop in index.php.
  * Loops through array and sends each student entry through the helper function for display.
+ * @PARAM &$studentArray array reference to an associative array whose data will be displayed.
  **/
-function cardLoader(&$studentArray) {
+function cardLoader(array &$studentArray) : void {
     $len = count($studentArray);                                    //determine length
     for ($i = 0; $i < $len; $i++) {
         cardLoaderHelper($studentArray[$i]);        //send current entry to helper
     }
 }
 
-/**INFO cardLoaderHelper
- *  Takes a reference to an associative array and the key of said array.
- *  Echoes a card for the student. Card links to detail.php with $key as the query variable "id". Also links to socials.
+/**
+ * Echoes a card for a student. Card links to detail.php with $key as the query variable "id".
+ * Card includes button for delete.php set up the same way as the detail link
+ * @param &$student object for a specific student
  **/
-function cardLoaderHelper(&$student) {
+function cardLoaderHelper(Object &$student) : void {
     echo '<div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                                <div class="advisor_thumb">
-                                    <!--anchor with link to detail, image b/t anchor tags-->
-                                    <a href="detail.php?id=', $student->{"key"}, '"><img src="', $student->{"img"}, '" 
-    alt="" style =
-                                        "width: 315px; height: 315px;"></a>
-                                    <div class="social-info">
-                                        <a href="', $student->{"facebook"}, '">
-                                            <i class="fa fa-facebook"></i>
-                                        </a>
-                                        <a href="', $student->{"twitter"}, '">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                        <a href="', $student->{"linkedIn"}, '">
-                                            <i class="fa fa-linkedin"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Team Details-->
-                                <div class="single_advisor_details_info">
-                                    <h6>', $student->{"name"}, '</h6>
-                                    <p class="designation">', $student->{"job"}, '</p>
-                                    <div>';
-    for ($i = 0; $i < $student->{"year"}; $i++) {
-        echo '<span class="h5 bi-slash-lg"></span>';                //loop displays a slash for each year
-    }
-    echo "<ul>";
-    chronos($student->{"DOB"});
-    echo "</ul>";
-    echo '<a href="delete.php?id=', $student->{"key"}, '">
-    <button class="btn-outline-primary rounded-pill text-center text-nowrap
-        position-relative rounded-circle ratio-1x1 bi-trash fs-5 overflow-hidden" id="deleteButton">
-    </button>
-</a>                      </div>
-                                </div>
-                        </div>
+            <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                <div class="advisor_thumb">
+                    <!--anchor with link to detail, image b/t anchor tags-->
+                    <a href="detail.php?id=', $student->{"key"}, '"><img src="', $student->{"img"}, '" alt="" style = "width: 315px; height: 315px;"></a>
+                    <div class="social-info">
+                        <a href="', $student->{"facebook"}, '">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="', $student->{"twitter"}, '">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="', $student->{"linkedIn"}, '">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Team Details-->
+                <div class="single_advisor_details_info">
+                    <h6>', $student->{"name"}, '</h6>
+                        <p class="designation">', $student->{"job"}, '</p>
+                            <div>';
+                        for ($i = 0; $i < $student->{"year"}; $i++) {
+                            echo '<span class="h5 bi-slash-lg"></span>';                //loop displays a slash for each year
+                        }
+                            echo "<ul>";
+                                    chronos($student->{"DOB"});
+                            echo "</ul>";
+                            echo '<a href="delete.php?id=', $student->{"key"}, '">
+                                      <button class="btn-outline-primary rounded-pill text-center text-nowrap
+                                              position-relative rounded-circle ratio-1x1 bi-trash fs-5 overflow-hidden delete-button">
+                                      </button>
+                                  </a>
+                            </div>
+                </div>
+            </div>
           </div>';
 
 }
 
-function skillBar(&$skills) {
+/**
+ * loops through the array of skills and outputs a skillbar for each one with appropriate values
+ * @param &$skills array array of all skills for an individual
+ **/
+function skillBar(array &$skills) : void {
     $len = count($skills);
-    for ($i = 0; $i < $len; $i++) {
-        $skill = $skills[$i];
+    for ($i = 0; $i < $len; $i++) {             //loop through skill array
+        $skill = $skills[$i];                   //get current skill, put info into html
         echo '<div class="py-1">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width:', $skill->{"value"}, '%;" aria-valuenow="',
@@ -74,46 +77,63 @@ function skillBar(&$skills) {
     }
 }
 
-function chronos($DoB) {
-    $bDay = date_create($DoB);
-    $jetzt = date_create();
+/**
+ * echoes the age in years, months and days
+ * @param $DoB string date of birth
+ **/
+function chronos(string $DoB) : void {
+    $bDay = date_create($DoB);              //make date object for birthday
+    $jetzt = date_create();                 //make date object for current date
 
-    $time = date_diff($jetzt, $bDay);
+    $time = date_diff($jetzt, $bDay);       //determine difference in date
 
     for ($i = 0; $i <= 3; $i++) {
-        ananke($i, $time);
+        ananke($i, $time);                  //call helper function with loop var and interval
     }
 }
 
-function ananke($thing, $time) {
-    $theLad = "";
+/**
+ * *  Echoes a line about age or how much time has passed
+ *  Loop info:
+ *     first loop calculates age,
+ *     second loop shows years since birth (age but with makeup),
+ *     third loop shows months since birth,
+ *     fourth loop shows days since birth.
+ *  named after greek titan's daughter (I think) because I had to commit to the bit
+ * @param $thing int counter for loop
+ * @param &$time DateInterval interval used for manipulation
+ **/
+function ananke(int $thing, DateInterval &$time) : void {
+    $theLad = "";                   //var that specifies the format of the interval
+    //string echoed after the var so there aren't just numbers with no explanation (e.g. 21, 4, 11)
     $theMad = "";
     switch ($thing) {
         case 3:
-        {
-            $theLad = "%m";
-            $theMad = "months";
-            break;
-        }
-        case 2:
-        {
+        {   //call 4
             $theLad = "%d";
             $theMad = "days";
             break;
         }
+        case 2:
+        {   //call 3
+            $theLad = "%m";
+            $theMad = "months";
+            break;
+        }
         case 1:
-        {
+        {   //call 2
             $theLad = "%y";
             $theMad = "years";
             break;
         }
         default :
-        {
+        {   //call 1
             $theLad = "%y";
             $theMad = "age";
         }
     }
 
+    //put info int the list item, echo to document
     echo "<li class='media p-0 mb-0'>
                         <span class='w-25 text-black font-weight-normal'>" . $theMad . "</span>
                         <label class='media-body p-0 mb-0'>";

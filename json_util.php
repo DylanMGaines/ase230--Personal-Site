@@ -1,23 +1,21 @@
 <?php
 /**
- * returns JSON class array, can be modified to have input var that indicates file, but don't want to have that
- * available to the user
- * **/
-function fileFetcher() {
-    $jsonMan = file_get_contents("./assets/JSON/class.json");       //fetch JSON file
-    return json_decode($jsonMan);                                           //convert to php array and return
+ * Gets a desired json file, decodes the file and returns it to a usable object in php
+ * @PARAM $jsonFile string the address of a json file. can be relative or not.
+ * @RETURN array
+ **/
+function fileFetcher(string $jsonFile) : array {
+    $jsonMan = file_get_contents($jsonFile);       //fetch JSON file
+    return json_decode($jsonMan);                  //convert to php array and return
 }
 
 /**
- * Takes string as input
- * Strings represent keys of the JSON objects
- * If no current key matches the selector, returns negative one, the error is processed by caller
- * Strings/keys return an object
+ * Hunts for a user with a key equal to an input selector or returns -1
+ * @PARAM $selector string the key of the user you're looking to find
+ * @return mixed returns reference to an array if found, if not, returns -1
  **/
-
-function huntMan($selector) {
-    //if fileFetcher were modified, the callString would need to be here and added to header
-    $phpMan = fileFetcher();                                        //get the array
+function huntMan(string $selector) {
+    $phpMan = fileFetcher("./assets/JSON/class.json");       //get the array
     $retMan = -1;                                                   //establish return var
     for ($i = 0; $i < count($phpMan); $i++) {                       //otherwise loop through array
         if (strcmp($phpMan[$i]->{'key'}, $selector) == 0) {         //if the current key matches the selector
@@ -29,15 +27,11 @@ function huntMan($selector) {
 }
 
 /**
- * Takes reference to updated array as arg.
- * encodes phpMan to JSON, puts the encoded array to the file, job done
- * Not done yet because brain small
+ * Saves an array into a file, no return
+ * @param $phpMan array
+ * @return void
  */
-function saveMan(&$phpMan) {
-    //encode phpRay into JSON array
-    $james = json_encode($phpMan);
-    //put to file
-    file_put_contents("./assets/JSON/class.json", $james);
-    //close file?
-    //void
+function saveMan(array &$phpMan) : void {
+    $jsonEncodedArray = json_encode($phpMan, JSON_PRETTY_PRINT);           //encode phpRay into JSON array
+    file_put_contents("./assets/JSON/class.json", $jsonEncodedArray);   //put to file
 }
