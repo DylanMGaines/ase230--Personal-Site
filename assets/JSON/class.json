@@ -5,7 +5,7 @@
         "DOB": "2001-8-15",
         "year": "3",
         "job": "Student",
-        "img": "https:\/\/i.imgur.com\/rqSvE0T.png",
+        "img": "https:\/\/www.shitpostbot.com\/resize\/585\/400?img=%2Fimg%2Fsourceimages%2Fgot-em-5ce29acfdf907.jpeg",
         "instagram": "https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ",
         "facebook": "https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ",
         "twitter": "https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ",
@@ -160,38 +160,6 @@
         ]
     },
     {
-        "key": "SL4",
-        "name": "Pablo Diego Jos\u00e9 Francisco de Paula Juan Nepomuceno Mar\u00eda de los Remedios Cipriano de la Sant\u00edsima Trinidad Ruiz y Picasso",
-        "DOB": "2001-8-15",
-        "year": "3",
-        "job": "Student",
-        "img": "https:\/\/i.imgur.com\/rqSvE0T.png",
-        "instagram": "https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ",
-        "facebook": "https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ",
-        "twitter": "https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ",
-        "linkedIn": "https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ",
-        "dProfession": "Game Development",
-        "dCompany": "The Boring Company",
-        "email": "longs6@mymail.nku.edu",
-        "intro": "This is my introduction. It is very short. In fact, it just ended.",
-        "quote": "We don\u2019t make mistakes. We just have happy accidents. ~ Bob Ross",
-        "funfact": "Mad Max: Fury Road is a good movie.",
-        "skills": [
-            {
-                "name": "Networking",
-                "value": "80"
-            },
-            {
-                "name": "Programming",
-                "value": "70"
-            },
-            {
-                "name": "Crab-walking",
-                "value": "0"
-            }
-        ]
-    },
-    {
         "key": "JB2",
         "name": "Jimmy Barrios",
         "DOB": "01\/29\/1995",
@@ -225,7 +193,7 @@
     },
     {
         "key": "ES2",
-        "name": "Elise Stromberg",
+        "name": "Pablo Diego Jos\u00e9 Francisco de Paula Juan Nepomuceno Mar\u00eda de los Remedios Cipriano de la Sant\u00edsima Trinidad Ruiz y Picasso",
         "DOB": "09\/03\/2000",
         "year": "3",
         "job": "Cybersecurity Analyst",
@@ -252,70 +220,6 @@
             {
                 "name": "Java",
                 "value": "0"
-            }
-        ]
-    },
-    {
-        "key": "MG2",
-        "name": "Munene Gatobu",
-        "DOB": "05\/08\/2002",
-        "year": "2",
-        "job": "Student",
-        "img": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/6\/6f\/Gordon_Ramsay.jpg\/220px-Gordon_Ramsay.jpg",
-        "instagram": "#",
-        "facebook": "#",
-        "twitter": "#",
-        "linkedIn": "#",
-        "dProfession": "Cloud Engineer",
-        "dCompany": "Amazon Web Services",
-        "email": "gatobum1@mymail.nku.edu",
-        "intro": "I\u2019m currently a sophomore at NKU. I enjoy programming and working with networking devices like switches, routers, access points etc. I\u2019m currently studying Computer Information Technology and software engineering while I\u2019m at NKU.",
-        "quote": "Practice doesn\u2019t make perfect. Good practice makes perfect. -Myself",
-        "funfact": "Video games are what got me into working with computers. Doing things like setting up minecraft servers, learning file types, and modding games are what got me interested in programming and networking. Some of my favorite games are Minecraft, Warframe, Ark Survival Evolved, and Smite.",
-        "skills": [
-            {
-                "name": "Programming",
-                "value": "70"
-            },
-            {
-                "name": "Information Technology",
-                "value": "80"
-            },
-            {
-                "name": "Video Gaming",
-                "value": "90"
-            }
-        ]
-    },
-    {
-        "key": "JB3",
-        "name": "Jimmy Barrios",
-        "DOB": "01\/29\/1995",
-        "year": "1",
-        "job": "Server-side developer",
-        "img": "https:\/\/cdn.iconscout.com\/icon\/free\/png-512\/batman-1417681-1197293.png",
-        "instagram": "#",
-        "facebook": "https:\/\/www.facebook.com\/jimmy.barriosgomez",
-        "twitter": "#",
-        "linkedIn": "#",
-        "dProfession": "Server-side developer",
-        "dCompany": "Google",
-        "email": "barriosgoj1@mymail.nku.edu",
-        "intro": "I am Jimmy Barrios from Guatemala. I have been living in Cincinnati for about 3 years now. I started in a program call AELP (American English Language Program) at NKU in the fall of 2018. My native language is Spanish, and I am still on the journey of learning english while  I am starting the CIT program.",
-        "quote": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.",
-        "funfact": "I like to learn languages whether is programming languages or human languages, even though I know more programming languages than humans, I am pushing hard torse learning more human languages. Also, I like music and especially play the piano.",
-        "skills": [
-            {
-                "name": "PHP",
-                "value": "75"
-            },
-            {
-                "name": "JavaScript",
-                "value": "73"
-            },
-            {
-                "name": "Database Management",
-                "value": "70"
             }
         ]
     }

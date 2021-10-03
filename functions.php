@@ -20,8 +20,9 @@ function cardLoaderHelper(Object &$student) : void {
     echo '<div class="col-12 col-sm-6 col-lg-3">
             <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
                 <div class="advisor_thumb">
-                    <!--anchor with link to detail, image b/t anchor tags-->
-                    <a href="detail.php?id=', $student->{"key"}, '"><img src="', $student->{"img"}, '" alt="" style = "width: 315px; height: 315px;"></a>
+                    <a href="detail.php?id=', $student->{"key"}, '">
+                        <img class="" src="', $student->{"img"}, '" alt="" style = "width: 100%; height 315px; overflow:hidden;">
+                    </a>
                     <div class="social-info">
                         <a href="', $student->{"facebook"}, '">
                             <i class="fa fa-facebook"></i>
@@ -34,19 +35,18 @@ function cardLoaderHelper(Object &$student) : void {
                         </a>
                     </div>
                 </div>
-                <!-- Team Details-->
                 <div class="single_advisor_details_info">
                     <h6>', $student->{"name"}, '</h6>
-                        <p class="designation">', $student->{"job"}, '</p>
-                            <div>';
-                        for ($i = 0; $i < $student->{"year"}; $i++) {
-                            echo '<span class="h5 bi-slash-lg"></span>';                //loop displays a slash for each year
-                        }
-                            echo "<ul>";
-                                    chronos($student->{"DOB"});
-                            echo "</ul>";
-                            echo '</div>
-                </div>
+                    <p class="designation">', $student->{"job"}, '</p>
+                    <div>';
+                for ($i = 0; $i < $student->{"year"}; $i++) {
+                    echo '<span class="h5 bi-slash-lg"></span>';                //loop displays a slash for each year
+                }
+                    echo "<ul>";
+                        chronos($student->{"DOB"});
+                    echo "</ul>";
+             echo '</div>
+               </div>
             </div>
           </div>';
 
@@ -62,7 +62,7 @@ function skillBar(array &$skills) : void {
         $skill = $skills[$i];                   //get current skill, put info into html
         echo '<div class="py-1">
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width:', $skill->{"value"}, '%;" aria-valuenow="',
+                    <div class="progress-bar" role="progressbar" style="width:', $skill->{"value"}, '%; background-color:#3f43fd" aria-valuenow="',
         $skill->{"value"}, '" aria-valuemin="0" aria-valuemax="100">
                         <div class="progress-bar-title">', $skill->{"name"}, '</div>
                         <span class="progress-bar-number">', $skill->{"value"}, '%</span>

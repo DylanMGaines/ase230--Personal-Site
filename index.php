@@ -63,6 +63,8 @@
             width: 3rem;
             height: 3rem;
             z-index: 5;
+            border-color: #070a57;
+            color: #070a57;
             transition: all 0.25s ease-in-out;
             -webkit-transition: all 0.25s ease-in-out;
             -moz-transition: all 0.25s ease-in-out;
@@ -70,6 +72,8 @@
 
         #createButton:hover {
             width: 7rem;
+            background-color: #070a57;
+            color: white;
             transition: all 0.25s ease-in-out;
             -webkit-transition: all 0.25s ease-in-out;
             -moz-transition: all 0.25s ease-in-out;
@@ -79,30 +83,37 @@
             content: "create";
         }
     </style>
-    <title>ASE 230 - class of Spring/Fall/Summer 2021</title>
+    <title>ASE 230 - Fall 2021</title>
 
 </head>
 
-<body>
-<!--header with house icon and words-->
-<header class="container text-center">
-    <h1><a href="./index.php" class="bi bi-house-fill text-secondary"></a>ASE 230 - class of Fall 2021</h1>
-</header>
-<!-- holds second bit of header, 2 rows -->
+<body class="mt-0">
+<nav class="mt-0 p-0 navbar sticky-top bg-dark container-fluid d-flex flex-nowrap">
+    <!--title-->
+    <h2 class="text-light ml-2 ml-lg-4 text-wrap w-50">
+        <a href="./index.php" class="bi bi-house-fill text-light"></a>
+        ASE 230 - <span class="text-muted">Fall 2021</span>
+    </h2>
+    <!--shape on right of navbar-->
+    <div class="my-0 overflow-hidden align-self-end w-25 h-100 align-self-stretch"
+         style="
+            border-left: 100px solid transparent;
+            border-top: 100px solid #3434a9;">
+    </div>
+</nav>
 <div class="container">
-    <!-- turns container into a row, centers it -->
-    <!-- second row, holds cards -->
+    <!-- holds cards -->
     <div class="row mt-5">
         <?php
         //card loader
-        $studentArray = fileFetcher("./assets/JSON/class.json");
+        $studentArray = fileFetcher("/assets/JSON/class.json");
         cardLoader($studentArray);
         ?>
     </div>
 
     <!-- button for create -->
     <a href="create.php">
-        <button class="btn-outline-primary rounded-pill text-center text-nowrap
+        <button class="btn btn-outline-dark rounded-pill text-center text-nowrap
         position-fixed rounded-circle ratio-1x1 bi-keyboard fs-5 overflow-hidden" id="createButton">
         </button>
     </a>

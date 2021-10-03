@@ -2,17 +2,9 @@
 require_once("json_util.php");
 
 if(count($_GET)){                                                           //check if GET var has values
-    $rayman = fileFetcher("./assets/json/class.json");                                                //fetch array of
-    // users
-    for($i = 0; $i < count($rayman); $i++) {                                //loop through the array until...
-        if($rayman[$i]->{'key'} == $_GET['id']){                            //...the key that matches the id is found
-            $preman = array_slice($rayman,0, $i);                     //slice part of array before removed user
-            $newman = array_splice($rayman, $i + 1);            //splice element out of array, leaving latter half
-            $rayman = array_merge($preman, $newman);                        //merge together into full array
-            saveMan($rayman);                                      //send new array to saveMan to be saved
-            break;
-        }
-    }
+    thanosMan($_GET["id"]);
+} else {
+    die("No entry provided.<br><br><a href='index.php'>Return to main page</a>");
 }
 //regardless of if, redirect to index.php via javascript
 ?>
@@ -52,6 +44,12 @@ if(count($_GET)){                                                           //ch
     <h2 class="text-dark">Why did you do that?</h2>
     <span class="text-muted">You monster.</span>
 
+    <script>
+        setTimeout(function () {
+                window.location = "index.php";
+            } , 10000);
+    </script>
+    <small>You will be redirected shortly. Or just click the home button if you're impatient.</small>
 </div>
 </body>
 

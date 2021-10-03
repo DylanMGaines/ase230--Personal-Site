@@ -1,10 +1,10 @@
 <?php
 require_once("json_util.php");
-$theClass = fileFetcher("./assets/JSON/class.json");            //get the class array
-$theSubject = huntDex($_GET["id"]);                                   //choose the thing
-$theClass[$theSubject]->{"name"} = "Pablo Diego José Francisco de Paula Juan Nepomuceno María de los Remedios Cipriano de la Santísima Trinidad Ruiz y Picasso";
-                                                                        //push celebrity name ^
-saveMan($theClass);                                           //save to json
+if(count($_GET)) {                                                                  //check if GET var has values
+    modMan($_GET["id"]);                                                            //if so, proceed
+} else {                                                                            //if not
+    die("No entry provided.<br><br><a href='index.php'>Return to main page</a>");   //error message, die.
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,12 +34,16 @@ saveMan($theClass);                                           //save to json
 <body>
 <div class="container text-center mb-5">
     <h1><a href="./index.php" class="bi bi-house-fill text-secondary mb-5"></a> ASE 230
-        - New Entry
+        - Modified Entry
     </h1>
 
-    <h2 class="text-dark">New User Created</h2>
-    <span class="text-muted">I tried to be more creative, but nothing I could think of was cool</span>
-
+    <h2 class="text-dark">The cult of Pablo expands</h2>
+    <script>
+        setTimeout(function () {
+            window.location = "index.php";
+        } , 10000);
+    </script>
+    <small>You will be redirected shortly. Or just click the home button if you're impatient.</small>
 </div>
 </body>
 

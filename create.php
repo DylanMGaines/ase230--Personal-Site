@@ -1,12 +1,6 @@
 <?php
 require_once("json_util.php");
-$theClass = fileFetcher("./assets/JSON/class.json");             //get the class array
-$theSubject = clone ($theClass[rand(0, count($theClass) - 1)]);                 //choose a rando
-$subKeyNum = substr($theSubject->{"key"}, 2);                     //get their number so the key isn't duped
-$subKeyLets = substr($theSubject->{"key"}, 0, 2);           //get their initials
-$theSubject -> {"key"} = $subKeyLets . ++$subKeyNum;                    //increment key
-array_push($theClass, $theSubject);                              //push new to array
-saveMan($theClass);                                           //save to json
+makeMan();
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +36,12 @@ saveMan($theClass);                                           //save to json
 
     <h2 class="text-dark">New User Created</h2>
     <span class="text-muted">I tried to be more creative, but nothing I could think of was cool</span>
-
+    <script>
+        setTimeout(function () {
+            window.location = "index.php";
+        } , 10000);
+    </script>
+    <small>You will be redirected shortly. Or just click the home button if you're impatient.</small>
 </div>
 </body>
 
